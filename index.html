@@ -355,7 +355,7 @@ tr:last-child td{border-bottom:none}
           </div>
           <button class="btn primary" onclick="approve()">✔ Aprobar propuesta</button>
         </div>
-        <div class="muted" style="margin-top:10px">Al aprobar se registra en el CRM (hoja «propuesta») y se envía un aviso por WhatsApp al +57 312 297 7712.</div>
+        <div class="muted" style="margin-top:10px">Al aprobar se envía un aviso por WhatsApp al +57 312 297 7712.</div>
         <div id="apState" class="muted" style="margin-top:6px"></div>
       </div>
       <div class="foot"><span>BIGERMARK.ONLINE · bigermarkonline@gmail.com</span><span>¡Gracias por confiar en Bigermark.online!</span></div>
@@ -366,9 +366,7 @@ tr:last-child td{border-bottom:none}
 
 <script>
 const CONFIG = {
-  // OPCIONAL: si lo dejas vacio, el boton "Aprobar" abre WhatsApp (wa.me) con el mensaje listo.
-  // Si conectas Google Apps Script, pega aqui la URL del Web App. NO la publiques si el repo es publico.
-  appsScriptUrl: 'https://script.google.com/macros/s/AKfycbzMZzpVvQAgtRjG-b-ukFHinJ8--lxSEIsKwyW8_4uQNyEiO9bi-f5J2D_pb37KvGMy/exec',
+  // Aprobacion por WhatsApp (wa.me) con el mensaje listo. Sin registro en hoja externa.
   ownerPhone: '573122977712'
 };
 const navBtns=[...document.querySelectorAll('nav button')];
@@ -414,24 +412,11 @@ function openWhats(msg){
 function approve(){
   var n=document.getElementById('apName').value.trim();
   if(!n){document.getElementById('apName').focus();toast('Escribe el nombre de quien aprueba');return;}
-  var ahora=new Date();
   var fechaFinal=document.getElementById('apDay').value+' '+document.getElementById('apMonthYear').textContent;
-  var payload={
-    nombre:n, fecha:fechaFinal, cliente:'PET HOUSE CLUB',
-    propuesta:'Marketing + Web + IA (Landing + Asistente IA/WhatsApp + SEO + Integral)',
-    total:'$ 3.000.000', estado:'Aprobada',
-    detalle:'Aprobada desde la propuesta HTML', ts:ahora.toISOString()
-  };
   document.getElementById('apState').innerHTML='✅ Propuesta aprobada por <b>'+n+'</b> · '+fechaFinal;
-  var msg='✅ PROPUESTA APROBADA - PET HOUSE CLUB\nAprobó: '+n+'\nFecha: '+fechaFinal+'\nTotal: $ 3.000.000\nRegistrada en CRM (hoja propuesta).';
-  if(CONFIG.appsScriptUrl){
-    fetch(CONFIG.appsScriptUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
-      .then(function(){ toast('🙏 Gracias, le contactaremos en breve'); })
-      .catch(function(){ toast('🙏 Gracias, le contactaremos en breve'); openWhats(msg); });
-  } else {
-    toast('🙏 Gracias, le contactaremos en breve');
-    openWhats(msg);
-  }
+  var msg='✅ PROPUESTA APROBADA - PET HOUSE CLUB\nAprobó: '+n+'\nFecha: '+fechaFinal+'\nTotal: $ 3.000.000';
+  toast('🙏 Gracias, le contactaremos en breve');
+  openWhats(msg);
 }
 document.querySelectorAll('.invrow .info').forEach(function(el){
   el.addEventListener('click',function(e){
