@@ -50,7 +50,7 @@ h2.sec{font-size:15px;text-transform:uppercase;letter-spacing:.6px;color:var(--b
 h2.sec::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--blue)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
 .grid{display:grid;gap:16px}
-.kpis{grid-template-columns:repeat(4,1fr)}
+.kpis{grid-template-columns:repeat(3,1fr)}
 .kpi{padding:18px}
 .kpi .lbl{font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
 .kpi .val{font-size:22px;font-weight:800;margin-top:8px}
@@ -58,21 +58,35 @@ h2.sec::before{content:"";width:4px;height:16px;border-radius:2px;background:var
 .kpi.blue{background:linear-gradient(135deg,#eaf1fb,#dde9fb);border-color:#cfe0f8}
 .kpi.green{background:linear-gradient(135deg,#e7f7ef,#d7f1e5);border-color:#c8ebda}
 .kpi.green .val{color:var(--green)}
+.kpi.orange{background:linear-gradient(135deg,#fdefe6,#fbe0ca);border-color:#f6d3b4}
+.kpi.orange .val{color:#c2601f}
 .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:18px}
-.obj{font-size:14px;line-height:1.65;color:#33405a}
+.obj{font-size:14px;line-height:1.65;color:#33405a;text-align:justify}
 .obj b{color:var(--navy)}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .tag{font-size:11.5px;font-weight:700;padding:6px 11px;border-radius:999px;background:#eef4fd;color:var(--blue-d)}
 .tag.a{background:#fdefe6;color:#c2601f}
 /* funnel */
-.funnel{display:flex;flex-direction:column;align-items:center;gap:7px;margin-top:8px}
-.funnel-step{height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:9px;color:#fff;font-weight:800;font-size:13px;background:linear-gradient(135deg,var(--blue),var(--blue-d));box-shadow:0 4px 12px rgba(47,111,208,.25);transition:.2s}
-.funnel-step:nth-child(2){background:linear-gradient(135deg,#3f7dd8,#2a5fae)}
-.funnel-step:nth-child(3){background:linear-gradient(135deg,#5a8fe0,#3568b5)}
-.funnel-step:nth-child(4){background:linear-gradient(135deg,#7aa2e6,#4a76bf)}
-.funnel-step:nth-child(5){background:linear-gradient(135deg,#9bb6ea,#6e8fc9)}
-.funnel-step:hover{transform:scale(1.02)}
-.funnel-step span{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:12px}
+.funnel{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:14px}
+.fsub{font-size:11.5px;color:var(--muted);margin:-2px 0 0;text-align:center}
+.fstep{position:relative;width:100%;min-height:52px;border-radius:13px;display:flex;align-items:center;gap:10px;padding:9px 12px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue-d));box-shadow:0 8px 18px rgba(47,111,208,.28);transition:transform .2s,box-shadow .2s;cursor:pointer}
+.fstep:nth-child(2){background:linear-gradient(135deg,#3f7dd8,#2a5fae)}
+.fstep:nth-child(3){background:linear-gradient(135deg,#5a8fe0,#3568b5)}
+.fstep:nth-child(4){background:linear-gradient(135deg,#7aa2e6,#4a76bf)}
+.fstep:nth-child(5){background:linear-gradient(135deg,#9bb6ea,#6e8fc9)}
+.fstep:hover,.fstep.open{transform:scale(1.03);box-shadow:0 12px 26px rgba(47,111,208,.35);z-index:5}
+.fnum{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;flex:0 0 auto}
+.fico{font-size:17px;flex:0 0 auto}
+.ftxt{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.ftxt b{font-size:13.5px;font-weight:800}
+.ftxt small{font-size:10.5px;font-weight:600;opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fmore{margin-left:auto;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex:0 0 auto;transition:.2s}
+.fstep:hover .fmore,.fstep.open .fmore{transform:rotate(45deg)}
+.fwin{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translate(-50%,10px);width:min(300px,88%);background:#14213d;color:#eaf0fb;border-radius:14px;padding:13px 15px;font-size:12px;line-height:1.55;opacity:0;pointer-events:none;transition:.28s;z-index:30;box-shadow:0 18px 40px rgba(0,0,0,.38)}
+.fwin::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:9px solid transparent;border-top-color:#14213d}
+.fwin b{display:block;font-size:13px;margin-bottom:4px}
+.fwin p{margin:0}
+.fstep:hover .fwin,.fstep.open .fwin{opacity:1;transform:translate(-50%,0)}
 /* phases */
 .phases{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .phase-card{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px;transition:.2s}
@@ -80,7 +94,7 @@ h2.sec::before{content:"";width:4px;height:16px;border-radius:2px;background:var
 .phase-card.ads{border-style:dashed;border-color:#f0c9a2;background:#fffaf4}
 .phase-num{flex:0 0 40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue-d));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(47,111,208,.3)}
 .phase-body h3{margin:0 0 5px;font-size:14.5px}
-.phase-body p{margin:0;font-size:12.7px;line-height:1.55;color:#45516b}
+.phase-body p{margin:0;font-size:12.7px;line-height:1.55;color:#45516b;text-align:justify}
 /* table */
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
@@ -120,30 +134,49 @@ tr:last-child td{border-bottom:none}
 .pay h4{margin:0;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
 .pay .v{font-size:20px;font-weight:800;margin:10px 0 6px}
 .pay .m{font-size:12.4px;color:#45516b;line-height:1.5}
-.note{font-size:12.4px;color:#4a5568;background:#fff8ef;border:1px solid #f6e2c8;border-radius:12px;padding:12px 14px;margin-top:14px;line-height:1.6}
+.note{font-size:12.4px;color:#4a5568;background:#fff8ef;border:1px solid #f6e2c8;border-radius:12px;padding:12px 14px;margin-top:14px;line-height:1.6;text-align:justify}
 /* notas */
-.notes li{margin:0 0 10px;line-height:1.6;font-size:13.2px;color:#37435c}
+.notes li{margin:0 0 10px;line-height:1.6;font-size:13.2px;color:#37435c;text-align:justify}
 .notes{padding-left:18px}
 .approve{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-top:16px;align-items:center}
 .approve input{padding:11px 13px;border:1px solid var(--line);border-radius:10px;font-size:13px;font-family:inherit;color:var(--navy);outline:none}
 .approve input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,111,208,.14)}
-.databox{font-size:12.6px;color:#3c475f;line-height:1.6}
+.datepick{display:flex;flex-direction:column;gap:6px}
+.dplbl{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.dprow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.datepick select{padding:11px 13px;border:1px solid var(--line);border-radius:10px;font-size:13px;font-family:inherit;color:var(--navy);outline:none;background:#fff;min-width:78px}
+.datepick select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,111,208,.14)}
+.datefill{font-size:13px;color:var(--navy);font-weight:600;white-space:nowrap}
+.databox{font-size:12.6px;color:#3c475f;line-height:1.6;text-align:justify}
 .databox b{color:var(--navy)}
-.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:13px 20px;border-radius:12px;font-size:13.5px;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.3s;z-index:50}
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:13px 20px;border-radius:12px;font-size:13.5px;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.3s;z-index:50;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .foot{margin-top:26px;font-size:11.5px;color:var(--muted);display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;flex-wrap:wrap;gap:6px}
-@media(max-width:980px){.kpis{grid-template-columns:1fr 1fr}.hero{grid-template-columns:1fr}.pays{grid-template-columns:1fr}}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}.pays{grid-template-columns:1fr}}
 @media(max-width:760px){
   .app{flex-direction:column}
   .sidebar{position:static;width:100%;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px;padding:14px}
-  .sidebar nav{flex-direction:row;overflow-x:auto;width:100%}
+  .sidebar nav{flex-direction:row;flex-wrap:wrap;overflow:visible;width:100%;justify-content:center;gap:6px}
+  .sidebar nav button{padding:9px 12px;font-size:12px;gap:7px;justify-content:center}
   .sidefoot{display:none}
   main{padding:18px}
   .phases{grid-template-columns:1fr}
   .topbar h1{font-size:18px}
+  .topbar{justify-content:center;text-align:center}
+  .actions{width:100%;justify-content:center}
   .approve{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(3,1fr);gap:8px}
+  .kpi{padding:12px}
+  .kpi .lbl{font-size:9.5px}
+  .kpi .val{font-size:16px}
+  .kpi .val small{font-size:11px}
+  .fwin{width:min(280px,92%)}
 }
-@media print{.sidebar,.actions,.approve{display:none}.panel{display:block!important}.app{display:block}}
+@media print{.sidebar,.actions,.approve{display:none}.panel{display:block!important}.app{display:block}
+.fstep{flex-wrap:wrap;transform:none!important;break-inside:avoid}
+.fmore{display:none}
+.fwin{position:static;opacity:1;transform:none;flex-basis:100%;order:9;margin-top:8px;width:100%;background:#eef2f8;color:#33405a;box-shadow:none}
+.fwin::after{display:none}}
 </style>
 </head>
 <body>
@@ -172,17 +205,16 @@ tr:last-child td{border-bottom:none}
       </div>
       <div class="actions">
         
-        <button class="btn primary" onclick="window.print()">🖨 Imprimir</button>
+        <button class="btn primary" onclick="window.print()">📄 PDF</button>
       </div>
     </div>
 
     <!-- RESUMEN -->
     <section id="resumen" class="panel active">
       <div class="grid kpis">
-        <div class="card kpi blue"><div class="lbl">Inversión total</div><div class="val"><span>$ 3.000.000</span></div></div>
-        <div class="card kpi"><div class="lbl">Duración</div><div class="val"><span>5</span> <small>días hábiles</small></div></div>
-        <div class="card kpi"><div class="lbl">Pagos</div><div class="val"><span>3</span> <small>30 / 40 / 30</small></div></div>
-        <div class="card kpi"><div class="lbl">Campañas Ads</div><div class="val" style="font-size:18px"><span>Aparte</span> <small>pauta + gestión</small></div></div>
+        <div class="card kpi blue"><div class="lbl">Duración</div><div class="val"><span>5</span> <small>días hábiles</small></div></div>
+        <div class="card kpi green"><div class="lbl">Pagos</div><div class="val"><span>3</span> <small>30 / 40 / 30</small></div></div>
+        <div class="card kpi orange"><div class="lbl">Campañas Ads</div><div class="val"><span>Aparte</span> <small>pauta + gestión</small></div></div>
       </div>
 
       <div class="hero">
@@ -197,7 +229,39 @@ tr:last-child td{border-bottom:none}
         </div>
         <div class="card">
           <h2 class="sec" style="margin-top:0">Embudo de atracción</h2>
-          <div class="funnel"><div class="funnel-step" style="width:100%"><span>1</span>Atracción</div><div class="funnel-step" style="width:92%"><span>2</span>Interés</div><div class="funnel-step" style="width:84%"><span>3</span>Deseo</div><div class="funnel-step" style="width:76%"><span>4</span>Conversión</div><div class="funnel-step" style="width:68%"><span>5</span>Retención</div></div>
+          <p class="fsub">Toca o pasa el cursor sobre cada fase para ver los detalles</p>
+          <div class="funnel">
+            <div class="fstep" style="width:100%">
+              <span class="fnum">1</span><span class="fico">📣</span>
+              <span class="ftxt"><b>Atracción</b><small>Anuncios + SEO local</small></span>
+              <span class="fmore">+</span>
+              <div class="fwin"><b>📣 Atracción</b><p>Anuncios en Meta / Google y SEO local para que te encuentren en Montería y lleguen más consultas.</p></div>
+            </div>
+            <div class="fstep" style="width:92%">
+              <span class="fnum">2</span><span class="fico">👀</span>
+              <span class="ftxt"><b>Interés</b><small>Conocen tus servicios</small></span>
+              <span class="fmore">+</span>
+              <div class="fwin"><b>👀 Interés</b><p>Descubren tus servicios y reservas en línea; la web y el chatbot despejan sus dudas al instante.</p></div>
+            </div>
+            <div class="fstep" style="width:84%">
+              <span class="fnum">3</span><span class="fico">💖</span>
+              <span class="ftxt"><b>Deseo</b><small>Ofertas y precio especial</small></span>
+              <span class="fmore">+</span>
+              <div class="fwin"><b>💖 Deseo</b><p>Ofertas, testimonios y el precio especial los motivan a dar el siguiente paso.</p></div>
+            </div>
+            <div class="fstep" style="width:76%">
+              <span class="fnum">4</span><span class="fico">✅</span>
+              <span class="ftxt"><b>Conversión</b><small>Reservan 24/7</small></span>
+              <span class="fmore">+</span>
+              <div class="fwin"><b>✅ Conversión</b><p>Reservan por WhatsApp o la web 24/7 y el CRM guarda cada contacto sin perder consultas.</p></div>
+            </div>
+            <div class="fstep" style="width:68%">
+              <span class="fnum">5</span><span class="fico">💚</span>
+              <span class="ftxt"><b>Retención</b><small>Fidelización y recompra</small></span>
+              <span class="fmore">+</span>
+              <div class="fwin"><b>💚 Retención</b><p>Seguimiento y fidelización con puntos y ofertas para que vuelvan y te recomienden.</p></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -279,7 +343,13 @@ tr:last-child td{border-bottom:none}
         <p class="databox" style="margin:0 0 14px"><b>Datos de consignación:</b> Cuenta de Ahorro Bancolombia No. 91277371311 a nombre de Carlos Arturo Rodríguez (cc. 78713191) · Nequi 31222977712.</p>
         <div class="approve">
           <input id="apName" placeholder="Nombre de quien aprueba"/>
-          <input id="apDate" placeholder="Fecha"/>
+          <div class="datepick">
+            <span class="dplbl">Fecha de inicio</span>
+            <div class="dprow">
+              <select id="apDay" aria-label="Día de inicio"></select>
+              <span class="datefill" id="apMonthYear">de …</span>
+            </div>
+          </div>
           <button class="btn primary" onclick="approve()">✔ Aprobar propuesta</button>
         </div>
         <div class="muted" style="margin-top:10px">Al aprobar se registra en el CRM (hoja «propuesta») y se envía un aviso por WhatsApp al +57 312 297 7712.</div>
@@ -319,19 +389,30 @@ if(initial && document.getElementById(initial)) activateTab(initial);
 window.addEventListener('hashchange',()=>{activateTab((location.hash||'').replace('#',''));});
 function toast(msg){
   const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
-  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),3200);
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),3000);
 }
 function openWhats(msg){
   var url='https://wa.me/'+CONFIG.ownerPhone+'?text='+encodeURIComponent(msg);
   var w=window.open(url,'_blank');
   if(!w){ location.href=url; }
 }
+(function(){
+  var hoy=new Date();
+  var meses=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  var sel=document.getElementById('apDay');
+  for(var i=1;i<=31;i++){
+    var o=document.createElement('option');
+    o.value=i; o.textContent=i;
+    if(i===hoy.getDate()) o.selected=true;
+    sel.appendChild(o);
+  }
+  document.getElementById('apMonthYear').textContent='de '+meses[hoy.getMonth()]+' de '+hoy.getFullYear();
+})();
 function approve(){
   var n=document.getElementById('apName').value.trim();
-  var d=document.getElementById('apDate').value.trim();
   if(!n){document.getElementById('apName').focus();toast('Escribe el nombre de quien aprueba');return;}
   var ahora=new Date();
-  var fechaFinal=d||ahora.toLocaleString('es-CO');
+  var fechaFinal=document.getElementById('apDay').value+' '+document.getElementById('apMonthYear').textContent;
   var payload={
     nombre:n, fecha:fechaFinal, cliente:'PET HOUSE CLUB',
     propuesta:'Marketing + Web + IA (Landing + Asistente IA/WhatsApp + SEO + Integral)',
@@ -342,10 +423,10 @@ function approve(){
   var msg='✅ PROPUESTA APROBADA - PET HOUSE CLUB\nAprobó: '+n+'\nFecha: '+fechaFinal+'\nTotal: $ 3.000.000\nRegistrada en CRM (hoja propuesta).';
   if(CONFIG.appsScriptUrl){
     fetch(CONFIG.appsScriptUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
-      .then(function(){ toast('¡Aprobada! CRM actualizado y aviso enviado por WhatsApp 🐾'); })
-      .catch(function(){ toast('Aprobada. Abriendo WhatsApp para notificar…'); openWhats(msg); });
+      .then(function(){ toast('🙏 Gracias, le contactaremos en breve'); })
+      .catch(function(){ toast('🙏 Gracias, le contactaremos en breve'); openWhats(msg); });
   } else {
-    toast('Aprobada. Abriendo WhatsApp para notificar…');
+    toast('🙏 Gracias, le contactaremos en breve');
     openWhats(msg);
   }
 }
@@ -358,6 +439,13 @@ document.querySelectorAll('.invrow .info').forEach(function(el){
     if(!was) row.classList.add('open');
   });
   el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault(); el.click();} });
+});
+document.querySelectorAll('.fstep').forEach(function(el){
+  el.addEventListener('click',function(){
+    var was=el.classList.contains('open');
+    document.querySelectorAll('.fstep.open').forEach(function(r){r.classList.remove('open');});
+    if(!was) el.classList.add('open');
+  });
 });
 </script>
 </body>
