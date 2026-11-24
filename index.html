@@ -32,6 +32,8 @@ nav button:hover{background:#f2f6fd;color:var(--blue-d)}
 nav button.active{background:linear-gradient(135deg,var(--blue),var(--blue-d));color:#fff;box-shadow:0 6px 14px rgba(47,111,208,.28)}
 nav button .ic{width:16px;text-align:center}
 .sidefoot{margin-top:auto;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;line-height:1.5}
+.destinatario{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:linear-gradient(135deg,#eaf1fb,#dde9fb);border:1px solid #cfe0f8;border-radius:999px;padding:10px 18px;margin-bottom:16px;font-size:12.5px;color:#45516b;text-align:center;box-shadow:0 4px 14px rgba(47,111,208,.1)}
+.destinatario b{color:var(--blue-d);font-size:13px}
 /* main */
 main{flex:1;min-width:0;padding:26px 34px 60px}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
@@ -194,7 +196,7 @@ tr:last-child td{border-bottom:none}
       <button data-tab="inversion"><span class="ic">$</span>Inversión</button>
       <button data-tab="notas"><span class="ic">✎</span>Notas y aprobación</button>
     </nav>
-    <div class="sidefoot">Preparado para<br/><b style="color:var(--navy)">Adriana Mattos</b> · CEO<br/>bigermark.online</div>
+    <div class="sidefoot">Preparado por<br/><b style="color:var(--navy)">Carlos Arturo Rodríguez</b><br/>bigermark.online</div>
   </aside>
 
   <main>
@@ -211,6 +213,7 @@ tr:last-child td{border-bottom:none}
 
     <!-- RESUMEN -->
     <section id="resumen" class="panel active">
+      <div class="destinatario">📩 Propuesta dirigida a <b>Isabel Mazo</b></div>
       <div class="grid kpis">
         <div class="card kpi blue"><div class="lbl">Duración</div><div class="val"><span>5</span> <small>días hábiles</small></div></div>
         <div class="card kpi green"><div class="lbl">Pagos</div><div class="val"><span>3</span> <small>30 / 40 / 30</small></div></div>
@@ -365,7 +368,7 @@ tr:last-child td{border-bottom:none}
 const CONFIG = {
   // OPCIONAL: si lo dejas vacio, el boton "Aprobar" abre WhatsApp (wa.me) con el mensaje listo.
   // Si conectas Google Apps Script, pega aqui la URL del Web App. NO la publiques si el repo es publico.
-  appsScriptUrl: '',
+  appsScriptUrl: 'https://script.google.com/macros/s/AKfycbzMZzpVvQAgtRjG-b-ukFHinJ8--lxSEIsKwyW8_4uQNyEiO9bi-f5J2D_pb37KvGMy/exec',
   ownerPhone: '573122977712'
 };
 const navBtns=[...document.querySelectorAll('nav button')];
